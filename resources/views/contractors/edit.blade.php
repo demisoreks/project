@@ -1,0 +1,18 @@
+@extends('app', ['page_title' => 'Contractors'])
+
+@section('content')
+<div class="row">
+    <div class="col-12" style="margin-bottom: 20px;">
+        <a class="btn btn-primary" href="{{ route('contractors.index') }}"><i class="fas fa-list"></i> Existing Contractors</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <legend>Edit Contractor</legend>
+        {!! Form::model($contractor, ['route' => ['contractors.update', $contractor->slug()], 'class' => 'form-group']) !!}
+        @method('PUT')
+        @include('contractors/form', ['submit_text' => 'Update Contractor'])
+        {!! Form::close() !!}
+    </div>
+</div>
+@endsection
